@@ -24,7 +24,8 @@ export function Footer() {
                     </FooterLink>
             </LinksRow>
 
-            <TextRow>
+            {/* Add socials here */}
+            {/* <TextRow>
                 <Column>
                     The information provided on this website is for general
                     informational purposes only and does not constitute
@@ -40,7 +41,7 @@ export function Footer() {
                     External links are provided for convenience. We do not
                     control or endorse third-party content.
                 </Column>
-            </TextRow>
+            </TextRow> */}
 
             <BottomBar>
                 © {new Date().getFullYear()} MyApp. All rights reserved.

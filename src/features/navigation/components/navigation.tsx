@@ -4,6 +4,8 @@ import { NAV_ITEMS } from '../domain_logic'
 import logoAsset from '../../../assets/logo.png'
 import { Logo } from '../../shared/components/logo';
 import type { ThemeMode } from '../../shared/models';
+import BurgerMenu from './burger';
+import { HideOnMobile, media, ShowOnMobile } from '../../shared/domain_logic/media';
 
 interface NavigationProps {
     theme?: ThemeMode
@@ -25,20 +27,28 @@ export const darkTheme = {
     border: "#2a2a2a",
 };
 
-export function Navigation({ theme: fontColour = "LIGHT" }: NavigationProps) {
+export function Navigation({ theme: mode = "LIGHT" }: NavigationProps) {
+  const currentTheme = mode === "DARK" ? darkTheme : lightTheme;
+
   return (
     <NavBar>
-        <LogoWrapper>
-            <Logo size="LARGE" asset={logoAsset} />
-        </LogoWrapper>
+        <ShowOnMobile>
+            <BurgerMenu items={NAV_ITEMS} />
+        </ShowOnMobile>
 
-        {/* <Nav theme={fontColour}>
-            {NAV_ITEMS.map((item) => (
-                <StyledLink key={item.path} to={item.path}>
-                    {item.label}
-                </StyledLink>
-            ))}
-        </Nav> */}
+        <HideOnMobile>
+            <LogoWrapper>
+                <Logo size="LARGE" asset={logoAsset} />
+            </LogoWrapper>
+
+            <Nav>
+                {NAV_ITEMS.map((item) => (
+                    <NavItem key={item.path} to={item.path} $theme={currentTheme}>
+                        {item.label}
+                    </NavItem>
+                ))}
+            </Nav>
+        </HideOnMobile>
     </NavBar>
   );
 }
@@ -47,7 +57,6 @@ const NavBar = styled.header`
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 0 20px;
 `;
 
 const LogoWrapper = styled.div`
@@ -60,15 +69,18 @@ const Nav = styled.nav`
     align-items: center;
     gap: 24px;
     padding: 16px 0;
-    background: ${({ theme }) => theme.background};
-`
 
-export const NavItem = styled(NavLink)`
+    ${media.tablet} {
+        display: none;
+    }
+`;
+
+export const NavItem = styled(NavLink)<{ $theme: typeof lightTheme }>`
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
 
-    color: ${({ theme }) => theme.muted};
+    color: ${({ $theme }) => $theme.muted};
 
     position: relative;
     padding: 6px 4px;
@@ -76,11 +88,11 @@ export const NavItem = styled(NavLink)`
     transition: color 0.2s ease;
 
     &:hover {
-        color: ${({ theme }) => theme.hover};
+        color: ${({ $theme }) => $theme.hover};
     }
 
     &.active {
-        color: ${({ theme }) => theme.text};
+        color: ${({ $theme }) => $theme.text};
         font-weight: 500;
     }
 
@@ -92,7 +104,7 @@ export const NavItem = styled(NavLink)`
         bottom: -4px;
 
         height: 2px;
-        background-color: ${({ theme }) => theme.text};
+        background-color: ${({ $theme }) => $theme.text};
         border-radius: 2px;
     }
 `;

@@ -32,9 +32,11 @@ export function Template({
                 />
             )}
 
-             <NavWrapper $inHero={hasHero}>
+            <NavWrapper $inHero={hasHero}>
                 <Navigation  theme={theme} />
+                <Divider />
             </NavWrapper>
+
 
             {/* HERO MODE */}
             {hasHero && (
