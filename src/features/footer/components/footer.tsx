@@ -1,80 +1,62 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import logoAsset from '../../../assets/logo.png';
 import { Logo } from "../../shared/components/logo";
+import { SocialIcons } from "../../socials/components/socials";
+import { darkTheme, lightTheme } from "../../navigation/components/navigation";
+import { NAV_ITEMS } from "../../navigation/domain_logic";
 
-export function Footer() {
+export function Footer({ theme: mode = "LIGHT" }) {
+    const theme = mode === "DARK" ? darkTheme : lightTheme;
+
     return (
-        <Wrapper>
-            <TopRow>
-                <Logo size="MEDIUM" asset={logoAsset}/>
-            </TopRow>
+         <FooterContainer $theme={theme}>
+            <Content>
+                <Top>
+                    <Description>
+                        Get connected with us on socials!
+                    </Description>
+                    <SocialIcons />
+                </Top>
 
-            <LinksRow>
-                <FooterLink as={Link} to="/">Home</FooterLink>
-                <FooterLink as={Link} to="/about">About</FooterLink>
-                <FooterLink as={Link} to="/services">Services</FooterLink>
-                <FooterLink as={Link} to="/contact">Contact</FooterLink>
-                <FooterLink 
-                   href="/legal.html" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                >
-                        Legality
-                    </FooterLink>
-            </LinksRow>
+                <Center>
+                    <FooterLink 
+                        href="/legal.html" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        >
+                            Privacy Policy
+                        </FooterLink>
+                </Center>
+            </Content>
 
-            {/* Add socials here */}
-            {/* <TextRow>
-                <Column>
-                    The information provided on this website is for general
-                    informational purposes only and does not constitute
-                    professional advice.
-                </Column>
-
-                <Column>
-                    We are not liable for any losses or damages arising from
-                    reliance on the information presented on this site.
-                </Column>
-
-                <Column>
-                    External links are provided for convenience. We do not
-                    control or endorse third-party content.
-                </Column>
-            </TextRow> */}
-
-            <BottomBar>
-                © {new Date().getFullYear()} MyApp. All rights reserved.
-            </BottomBar>
-        </Wrapper>
+            <Bottom $theme={theme}>
+                © {new Date().getFullYear()} Tegar Logistics. All rights reserved.
+            </Bottom>
+        </FooterContainer>
     );
 }
 
-const Wrapper = styled.footer`
-    background: #0f172a;
-    color: #e2e8f0;
+const FooterContainer = styled.footer<{ $theme: any }>`
+    background: ${({ $theme }) => $theme.background};
+    border-top: 1px solid ${({ $theme }) => $theme.border};
+    margin-top: 16px;
+`;
+
+const Content = styled.div``;
+
+const Top = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 40px 8px;
+    background-color: lightpink
+`;
+
+const Center = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     padding: 8px;
-`;
-
-const TopRow = styled.div`
-    max-width: 1100px;
-    margin: 0 auto 24px;
-    display: flex;
-    justify-content: center; /* change to space-between if you add more */
-`;
-
-// const Logo = styled.h2`
-//     margin: 0;
-//     font-size: 22px;
-// `;
-
-const LinksRow = styled.div`
-    max-width: 1100px;
-    margin: 0 auto 32px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
 `;
 
 const FooterLink = styled.a`
@@ -82,38 +64,24 @@ const FooterLink = styled.a`
     text-decoration: none;
     font-size: 14px;
     opacity: 0.8;
+    text-decoration: underline;
 
     &:hover {
         opacity: 1;
-        text-decoration: underline;
     }
 `;
 
-const TextRow = styled.div`
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+const Description = styled.p`
+  margin-top: 12px;
+  font-size: 14px;
+  color: #777;
+  max-width: 240px;
 `;
 
-const Column = styled.p`
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.6;
-    opacity: 0.7;
-`;
-
-const BottomBar = styled.div`
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+const Bottom = styled.div<{ $theme: any }>`
     text-align: center;
+    padding: 16px;
     font-size: 12px;
-    opacity: 0.6;
+    color: ${({ $theme }) => $theme.muted};
+    border-top: 1px solid ${({ $theme }) => $theme.border};
 `;

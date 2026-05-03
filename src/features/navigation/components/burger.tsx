@@ -10,7 +10,7 @@ export default function BurgerMenu({ items }: Props) {
     const [open, setOpen] = useState(false);
 
     return (
-        <>
+        <div style={{ padding: 8 }}>
             <BurgerButton
                 aria-label="Toggle menu"
                 aria-expanded={open}
@@ -34,7 +34,7 @@ export default function BurgerMenu({ items }: Props) {
                 </StyledLink>
                 ))}
             </Menu>
-        </>
+        </div>
     );
 }
 

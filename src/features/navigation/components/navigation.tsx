@@ -37,30 +37,38 @@ export function Navigation({ theme: mode = "LIGHT" }: NavigationProps) {
         </ShowOnMobile>
 
         <HideOnMobile>
-            <LogoWrapper>
-                <Logo size="LARGE" asset={logoAsset} />
-            </LogoWrapper>
+            <DesktopViewContainer>
+                <LogoWrapper>
+                    <Logo size="MEDIUM" asset={logoAsset} />
+                </LogoWrapper>
 
-            <Nav>
-                {NAV_ITEMS.map((item) => (
-                    <NavItem key={item.path} to={item.path} $theme={currentTheme}>
-                        {item.label}
-                    </NavItem>
-                ))}
-            </Nav>
+                <Nav>
+                    {NAV_ITEMS.map((item) => (
+                        <NavItem key={item.path} to={item.path} $theme={currentTheme}>
+                            {item.label}
+                        </NavItem>
+                    ))}
+                </Nav>
+
+                <div style={{ flex: 1 }}/>
+            </DesktopViewContainer>
         </HideOnMobile>
     </NavBar>
   );
 }
 
-const NavBar = styled.header`
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+
+
+const DesktopViewContainer = styled.div`
+    display: flex;
     align-items: center;
-`;
+`
+
+const NavBar = styled.header``;
 
 const LogoWrapper = styled.div`
-    justify-self: start;
+    flex: 1;
+    text-align: left;
 `;
 
 const Nav = styled.nav`
@@ -69,6 +77,7 @@ const Nav = styled.nav`
     align-items: center;
     gap: 24px;
     padding: 16px 0;
+    flex: 1;
 
     ${media.tablet} {
         display: none;

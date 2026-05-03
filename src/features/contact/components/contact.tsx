@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from 'styled-components';
-import { InputField } from '../../shared/components/Input_Field';
+import { InputField } from '../../shared/components/input_field';
 import { Button } from "../../shared/components/button";
 import { Template } from "../../shared/components/form_template";
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate, useLocation  } from "react-router-dom";
 
 type LogoSize = "SMALL" | "MEDIUM" | "LARGE"
 
@@ -8,7 +9,7 @@ interface LogoProps {
 }
 
 const sizeMap = {
-    SMALL: 20,
+    SMALL: 40,
     MEDIUM: 60,
     LARGE: 100,
 }
@@ -16,13 +17,24 @@ const sizeMap = {
 export function Logo({size = 'MEDIUM', asset }: LogoProps) {
     const logoSize = sizeMap[size];
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleClick = () => {
+        if (location.pathname !== "/") {
+            navigate("/");
+        }
+    };
+
     return (
         <Wrapper>
-             <img
+            <img
                 src={asset}
                 alt="Logo"
                 width={logoSize}
                 height={logoSize}
+                onClick={handleClick}
+                style={{ cursor: "pointer" }}
             />
         </Wrapper>
     )
