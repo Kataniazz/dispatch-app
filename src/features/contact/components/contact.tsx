@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled from 'styled-components';
-import { InputField } from '../../shared/components/input_field';
+import { InputField } from '../../shared/components/Input_Field';
 import { Button } from "../../shared/components/button";
-import { Template } from "../../shared/components/form_template";
 
 type FormState = {
     firstName: string;
@@ -36,67 +35,65 @@ export function Contact() {
     }
 
     return (
-        <Template showDivider>
-            <Content>
-                <InputFieldWrapper>
+        <Content>
+            <InputFieldContainer>
+                <InputField 
+                    name='firstName' 
+                    size='SMALL' 
+                    value={form.firstName}
+                    onChange={handleChange}
+                    label='First Name'
+                    isError={false}
+                    isThickFocus={false}
+                />
                     <InputField 
-                        name='firstName' 
-                        size='SMALL' 
-                        value={form.firstName}
-                        onChange={handleChange}
-                        label='First Name'
-                        isError={false}
-                        isThickFocus={false}
-                    />
-                     <InputField 
-                        name='lastName' 
-                        size='SMALL' 
-                        value={form.lastName}
-                        onChange={handleChange}
-                        label='Last Name'
-                        isError={false}
-                        isThickFocus={false}
-                    />
-                </InputFieldWrapper>
+                    name='lastName' 
+                    size='SMALL' 
+                    value={form.lastName}
+                    onChange={handleChange}
+                    label='Last Name'
+                    isError={false}
+                    isThickFocus={false}
+                />
+            </InputFieldContainer>
 
-                <InputFieldWrapper>
-                     <InputField 
-                        name='email' 
-                        size='SMALL' 
-                        value={form.email}
-                        onChange={handleChange}
-                        label='Email'
-                        isError={false}
-                        isThickFocus={false}
-                    />
-                     <InputField 
-                        name='phone' 
-                        size='SMALL' 
-                        value={form.phone}
-                        onChange={handleChange}
-                        label='Phone'
-                        isError={false}
-                        isThickFocus={false}
-                    />
-                </InputFieldWrapper>
+            <InputFieldContainer>
+                    <InputField 
+                    name='email' 
+                    size='SMALL' 
+                    value={form.email}
+                    onChange={handleChange}
+                    label='Email'
+                    isError={false}
+                    isThickFocus={false}
+                />
+                    <InputField 
+                    name='phone' 
+                    size='SMALL' 
+                    value={form.phone}
+                    onChange={handleChange}
+                    label='Phone'
+                    isError={false}
+                    isThickFocus={false}
+                />
+            </InputFieldContainer>
 
-                 <InputFieldWrapper>
-                     <InputField 
-                        name='message' 
-                        size='LARGE' 
-                        value={form.message}
-                        onChange={handleChange}
-                        label='Leave us a message'
-                        isError={false}
-                        isThickFocus={false}
-                    />
-                </InputFieldWrapper>
+            <InputFieldContainer>
+                <InputField 
+                    name='message' 
+                    size='LARGE' 
+                    value={form.message}
+                    onChange={handleChange}
+                    label='Leave us a message'
+                    isError={false}
+                    isThickFocus={false}
+                />
+            </InputFieldContainer>
 
-                <ButtonWrapper>
-                    <Button variant="primary" onClick={handleOnButtonPress}>Submit</Button>
-                </ButtonWrapper>
-            </Content>
-        </Template>
+            <ButtonContainer>
+                <Button variant="primary" onClick={handleOnButtonPress}>Submit</Button>
+            </ButtonContainer>
+        </Content>
     )
 }
 
@@ -106,12 +103,12 @@ const Content = styled.div`
     margin: 24px 0 80px;
 `
 
-const InputFieldWrapper = styled.div`
+const InputFieldContainer = styled.div`
     display: flex;
     width: 50%
 `
 
-const ButtonWrapper = styled.div`
+const ButtonContainer = styled.div`
     display: flex;
     margin: 4px 16px 0;
     width: 25%;

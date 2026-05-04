@@ -1,5 +1,8 @@
 /**
  * TODO:
+
+	Make the cards responsive to mobile by adding a scroll
+
  * Website font: Rubik Update tis through shared component instead of root
  * 
  * Create a toggle to switch between English & Spanish

@@ -4,35 +4,35 @@ import { styled } from "styled-components";
 export function SocialIcons() {
   return (
     <Container>
-      <IconLink href="https://github.com/yourname" target="_blank">
-        <FaGithub />
-      </IconLink>
+        <IconLink href="https://github.com/yourname" target="_blank">
+            <FaGithub />
+        </IconLink>
 
-      <IconLink href="https://linkedin.com/in/yourname" target="_blank">
-        <FaLinkedin />
-      </IconLink>
+        <IconLink href="https://linkedin.com/in/yourname" target="_blank">
+            <FaLinkedin />
+        </IconLink>
 
-      <IconLink href="https://twitter.com/yourname" target="_blank">
-        <FaTwitter />
-      </IconLink>
+        <IconLink href="https://twitter.com/yourname" target="_blank">
+            <FaTwitter />
+        </IconLink>
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
+    display: flex;
+    gap: 16px;
+    align-self: center;
 `;
 
 const IconLink = styled.a`
-  color: #777;
-  font-size: 20px;
+    color: #777;
+    font-size: 20px;
 
-  transition: all 0.2s ease;
+    transition: all 0.2s ease;
 
-  &:hover {
-    color: #111;
-    transform: translateY(-2px);
-  }
+    &:hover {
+        color: #111;
+        transform: translateY(-2px);
+    }
 `;

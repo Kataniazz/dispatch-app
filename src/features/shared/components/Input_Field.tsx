@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 function getGapBasedOnSize(size: InputSize): string {
     switch (size) {

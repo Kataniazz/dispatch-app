@@ -1,158 +1,145 @@
 import styled from 'styled-components';
-import { Navigation } from '../../navigation/components/navigation';
+import logoAsset from '../../../assets/logo.png'
 import { Footer } from '../../footer/components/footer';
-import type { ThemeMode } from '../models';
+import { Logo } from './logo';
+import { LanguageSwitcher } from '../../../i18n/switch';
 
 type TemplateProps = {
     title?: string;
     subtitle?: string;
-    paragraphs?: string[];
-    showDivider?: boolean;
     children?: React.ReactNode;
     headerBackgroundImage?: string;
-    theme?: ThemeMode
 };
 
 export function Template({
     title,
     subtitle,
-    paragraphs = [],
-    showDivider = false,
     children,
-    headerBackgroundImage,
-    theme
+    headerBackgroundImage
 }: TemplateProps) {
     const hasHero = !!headerBackgroundImage;
 
     return (
-        <Section>
-            <NavWrapper><Navigation theme={theme} /></NavWrapper>
+        <TemplateContainer>
+            <HeaderContainer>
+                <LogoContainer>
+                    <Logo size="LARGE" asset={logoAsset} />
+                </LogoContainer>
+                <LanguageToggleContainer>
+                    <LanguageSwitcher />
+                </LanguageToggleContainer>
+            </HeaderContainer>
 
             {hasHero && (
                 <Hero $bg={headerBackgroundImage}>
-                    {title && <Title $theme={theme} $inHero>{title}</Title>}
-                    {subtitle && <Subtitle $theme={theme} $inHero>{subtitle}</Subtitle>}
+                    {title && <Title $inHero>{title}</Title>}
+                    {subtitle && <Subtitle $inHero>{subtitle}</Subtitle>}
                 </Hero>
             )}
 
             {!hasHero && (title || subtitle) && (
                 <StandardHeader>
-                    {title && <Title $theme={theme}  $inHero>{title}</Title>}
-                    {subtitle && <Subtitle $theme={theme}  $inHero>{subtitle}</Subtitle>}
+                    {title && <Title $inHero>{title}</Title>}
+                    {subtitle && <Subtitle $inHero>{subtitle}</Subtitle>}
                 </StandardHeader>
             )}
 
-            <Content>
-                {children ? children : paragraphs.map((p, i) => (
-                    <Paragraph key={i}>{p}</Paragraph>
-                ))}
-
-                {showDivider && <Divider />}
-
-                <Footer />
-            </Content>
-        </Section>
+            <Content> {children ? children : null}</Content>
+            
+            <Footer />
+        </TemplateContainer>
     );
 }
 
-const Section = styled.section`
+const TemplateContainer = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
+    background-color: white;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+const HeaderContainer = styled.div`
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: lightpink;
+`;
 
-  padding: 32px 0;
-//   max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
+const LogoContainer = styled.div`
+    flex: 1;
+    text-align: left;
+`;
+
+const LanguageToggleContainer = styled.div`
+    align-self: center;
+    padding-right: 16px;
 `;
 
 const Hero = styled.div<{ $bg?: string }>`
-  position: relative;
-  width: 100%;
-  height: 420px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-//   padding: 0 24px;
-
-  color: white;
-
-  background-image: ${({ $bg }) => $bg ? `url(${$bg})` : "none"};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-  }
-
-  > * {
     position: relative;
-    z-index: 1;
-  }
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: white;
+
+    background-image: ${({ $bg }) => $bg ? `url(${$bg})` : "none"};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
 `;
 
 const StandardHeader = styled.div`
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 4px;
     align-items: center;
 `;
 
-const NavWrapper = styled.div`
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    background-color: lightgray;
-`;
-
-const Divider = styled.hr`
-    border: none;
-    height: 2px;  
-    background-color: #e0e0e0;
-    width: 97%;
-`;
-
-const Title = styled.h2<{ $theme?: ThemeMode, $inHero: boolean }>`
+const Title = styled.h2<{ $inHero: boolean }>`
     text-align: ${({ $inHero }) => ($inHero ? "left" : "center")};
-
     font-size: 40px;
     font-weight: 700;
     margin: 0;
-
-    color: ${({ $theme }) =>
-        $theme === "DARK" ? "#ffffff" : "#111111"};
+    color: "#111111";
+    padding-left: 16px;
 `;
 
-const Subtitle = styled.h4<{ $theme?: ThemeMode, $inHero: boolean }>`
+const Subtitle = styled.h4<{ $inHero: boolean }>`
     text-align: ${({ $inHero }) => ($inHero ? "left" : "center")};
-
     font-size: 24px;
     font-weight: 500;
     margin: 0;
-
-    color: ${({ $theme }) =>
-        $theme === "DARK" ? "#cccccc" : "#666666"};
+    color: "#666666";
+    padding-left: 16px;
 `;
 
-const Paragraph = styled.p`
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-    color: #444;
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0;
+    margin: 0 auto;
+    width: 100%;
 `;

@@ -2,18 +2,11 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AppProviders } from './providers'
 import { Home } from '../features/home/components/home'
-import { Services } from '../features/services/components/services'
-import { Contact } from '../features/contact/components/contact'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '../features/shared/domain_logic/theme'
 
-/**
- * All navigation pages
- */
 export const routes = [
-  { path: '/', element: <Home /> },
-  { path: 'services', element: <Services /> },
-  { path: '/contact', element: <Contact /> },
+    { path: '/', element: <Home /> }
 ]
 
 const mode = "light";
@@ -24,9 +17,9 @@ const App = () => {
       <AppProviders>
         <BrowserRouter>
           <Routes>
-              {routes.map((route) => (
-                <Route key={route.path} {...route} />
-              ))}
+                {routes.map((route) => (
+                    <Route key={route.path} {...route} />
+                ))}
           </Routes>
         </BrowserRouter>
       </AppProviders>
