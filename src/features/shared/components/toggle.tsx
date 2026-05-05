@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { theme } from '../domain_logic/theme'
 
 type ToggleOption = {
     value: string
@@ -34,7 +35,7 @@ export function Toggle({
                         onClick={() => !disabled && onChange(opt.value)}
                         $active={isActive}
                     >
-                        {opt.icon && <Icon>{opt.icon}</Icon>}
+                        {/* {opt.icon && <Icon>{opt.icon}</Icon>} */}
                         {opt.label && <Label>{opt.label}</Label>}
                     </Option>
                 )
@@ -46,7 +47,7 @@ export function Toggle({
 const Wrapper = styled.div<{ $disabled: boolean }>`
     position: relative;
     display: inline-flex;
-    background: #1a1a1a;
+    background: #555664;
     border-radius: 999px;
     padding: 4px;
     gap: 4px;
@@ -88,16 +89,18 @@ const Option = styled.button<{ $active: boolean }>`
     font-size: 13px;
     font-weight: 500;
 
-    color: ${({ $active }) => ($active ? '#000' : '#aaa')};
+    color: ${({ $active }) => ($active ? theme.colors.main : "white")};
     transition: color 0.25s ease;
 `
 
-const Icon = styled.span`
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-`
+// const Icon = styled.span`
+//     display: flex;
+//     align-items: center;
+//     font-size: 14px;
+// `
 
 const Label = styled.span`
     white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
 `

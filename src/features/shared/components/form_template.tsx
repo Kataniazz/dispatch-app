@@ -3,6 +3,7 @@ import logoAsset from '../../../assets/logo.png'
 import { Footer } from '../../footer/components/footer';
 import { Logo } from './logo';
 import { LanguageSwitcher } from '../../../i18n/switch';
+import { media } from '../domain_logic/media';
 
 type TemplateProps = {
     title?: string;
@@ -56,17 +57,26 @@ const TemplateContainer = styled.section`
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background-color: white;
+    background-color: #040020;
 `;
 
 const HeaderContainer = styled.div`
-    display: flex;
     position: sticky;
     top: 0;
-    left: 0;
+    z-index: 1000;
+    display: flex;
+    
     width: 100%;
-    z-index: 2;
-    background-color: lightpink;
+    background-color: #040020de;
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid #555664b2;
+
+    transition: box-shadow 0.2s ease;
+
+    &.scrolled {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
 `;
 
 const LogoContainer = styled.div`
@@ -105,6 +115,10 @@ const Hero = styled.div<{ $bg?: string }>`
     > * {
         position: relative;
         z-index: 1;
+    }
+
+    ${media.tablet} {
+        height: 400px;
     }
 `;
 

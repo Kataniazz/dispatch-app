@@ -4,5 +4,9 @@ export const theme = {
         tablet: "768px",
         laptop: "1024px",
         desktop: "1280px"
+    },
+    colors: {
+        main: "#040020",
+        links: "#cecece"
     }
 };

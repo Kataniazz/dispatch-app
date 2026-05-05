@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from 'styled-components';
 import { InputField } from '../../shared/components/Input_Field';
 import { Button } from "../../shared/components/button";
+import { media } from "../../shared/domain_logic/media";
 
 type FormState = {
     firstName: string;
@@ -47,18 +48,18 @@ export function Contact() {
                     isThickFocus={false}
                 />
                     <InputField 
-                    name='lastName' 
-                    size='SMALL' 
-                    value={form.lastName}
-                    onChange={handleChange}
-                    label='Last Name'
-                    isError={false}
-                    isThickFocus={false}
-                />
+                        name='lastName' 
+                        size='SMALL' 
+                        value={form.lastName}
+                        onChange={handleChange}
+                        label='Last Name'
+                        isError={false}
+                        isThickFocus={false}
+                    />
             </InputFieldContainer>
 
             <InputFieldContainer>
-                    <InputField 
+                <InputField 
                     name='email' 
                     size='SMALL' 
                     value={form.email}
@@ -68,14 +69,14 @@ export function Contact() {
                     isThickFocus={false}
                 />
                     <InputField 
-                    name='phone' 
-                    size='SMALL' 
-                    value={form.phone}
-                    onChange={handleChange}
-                    label='Phone'
-                    isError={false}
-                    isThickFocus={false}
-                />
+                        name='phone' 
+                        size='SMALL' 
+                        value={form.phone}
+                        onChange={handleChange}
+                        label='Phone'
+                        isError={false}
+                        isThickFocus={false}
+                    />
             </InputFieldContainer>
 
             <InputFieldContainer>
@@ -101,11 +102,18 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin: 24px 0 80px;
+    align-items: center;
+
 `
 
 const InputFieldContainer = styled.div`
     display: flex;
-    width: 50%
+    width: 50%;
+
+    ${media.tablet} {
+        width: 50%;
+        flex-direction: column;
+    }
 `
 
 const ButtonContainer = styled.div`

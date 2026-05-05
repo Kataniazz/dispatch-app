@@ -68,7 +68,7 @@ const InputContainer = styled.div<{$size: InputSize}>`
 
 const InputLabel = styled.label<{$required?: boolean}>`
     font-size: 14px;
-    color: #555;
+    color: #8d8d8d;
     margin-bottom: 6px;
     display: block;
 
@@ -105,4 +105,6 @@ const Input = styled.input<{
         cursor: not-allowed;
         opacity: 0.6;
     }
+
+    color: #eee;
 `;

@@ -3,32 +3,10 @@ import { NavLink } from 'react-router-dom'
 import { NAV_ITEMS } from '../domain_logic'
 import logoAsset from '../../../assets/logo.png'
 import { Logo } from '../../shared/components/logo';
-import type { ThemeMode } from '../../shared/models';
 import BurgerMenu from './burger';
 import { HideOnMobile, media, ShowOnMobile } from '../../shared/domain_logic/media';
 
-interface NavigationProps {
-    theme?: ThemeMode
-}
-
-export const lightTheme = {
-    background: "#ffffff",
-    text: "#111111",
-    muted: "#777777",
-    hover: "#222222",
-    border: "#e0e0e0",
-};
-
-export const darkTheme = {
-    background: "#0f0f0f",
-    text: "#ffffff",
-    muted: "#aaaaaa",
-    hover: "#ffffff",
-    border: "#2a2a2a",
-};
-
-export function Navigation({ theme: mode = "LIGHT" }: NavigationProps) {
-  const currentTheme = mode === "DARK" ? darkTheme : lightTheme;
+export function Navigation() {
 
   return (
     <NavBar>
@@ -44,7 +22,7 @@ export function Navigation({ theme: mode = "LIGHT" }: NavigationProps) {
 
                 <Nav>
                     {NAV_ITEMS.map((item) => (
-                        <NavItem key={item.path} to={item.path} $theme={currentTheme}>
+                        <NavItem key={item.path} to={item.path}>
                             {item.label}
                         </NavItem>
                     ))}
@@ -84,12 +62,12 @@ const Nav = styled.nav`
     }
 `;
 
-export const NavItem = styled(NavLink)<{ $theme: typeof lightTheme }>`
+export const NavItem = styled(NavLink)`
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
 
-    color: ${({ $theme }) => $theme.muted};
+    color: "#aaaaaa";
 
     position: relative;
     padding: 6px 4px;
@@ -97,11 +75,11 @@ export const NavItem = styled(NavLink)<{ $theme: typeof lightTheme }>`
     transition: color 0.2s ease;
 
     &:hover {
-        color: ${({ $theme }) => $theme.hover};
+        color: "#ffffff";
     }
 
     &.active {
-        color: ${({ $theme }) => $theme.text};
+        color: "#ffffff";
         font-weight: 500;
     }
 
@@ -113,7 +91,7 @@ export const NavItem = styled(NavLink)<{ $theme: typeof lightTheme }>`
         bottom: -4px;
 
         height: 2px;
-        background-color: ${({ $theme }) => $theme.text};
+        background-color: "#ffffff";
         border-radius: 2px;
     }
 `;

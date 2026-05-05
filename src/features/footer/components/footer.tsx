@@ -7,16 +7,25 @@ export function Footer() {
          <FooterContainer>
             <Content>
                 <SocialIcons />
-                <FooterLink 
-                    href="/legal.html" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                >
-                    Privacy Policy
-                </FooterLink>
+                <div>
+                    <FooterLink 
+                        href="/legal.html" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        Privacy Policy
+                    </FooterLink>
+                    <FooterLink 
+                        href="" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        Terms & Conditions
+                    </FooterLink>
+                </div>
             </Content>
             <Bottom>
-                <Text variant="small" align="center">
+                <Text variant="small" align="center" theme="LIGHT">
                     © {new Date().getFullYear()} Tegar Logistics. All rights reserved.
                 </Text>
             </Bottom>
@@ -34,24 +43,26 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 8px 40px 8px;
-    background-color: lightpink;
+    border-top: 1px solid #555664b2;
+    background-color: #040020de;
 `;
 
 const FooterLink = styled.a`
-    color: #777;
+    color: #cecece;
     text-decoration: none;
     font-size: 14px;
     opacity: 0.8;
     text-decoration: underline;
+    padding-left: 8px;
 
     &:hover {
         opacity: 1;
-        color: #111;
+        color: #ffffff;
     }
 `;
 
 const Bottom = styled.div`
     padding: 12px;
-    border-top: 1px solid #777;
-    background-color: lightpink;
+    // border-top: 1px solid #777;
+    background-color: #040020de;
 `;
