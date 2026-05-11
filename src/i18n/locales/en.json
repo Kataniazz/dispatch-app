@@ -1,4 +1,52 @@
 {
-  "title": "Logistics & Freight",
-  "subtitle": "We move your cargo with precision"
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "leaveUsAMessage": "Leave us a message",
+    "submit": "Submit",
+    "messageSent": "Message sent ✅",
+    "somethingWentWrong": "Something went wrong ❌",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms & Conditions",
+    "allRightsReserved": "© {{year}} Tegar Logistics. All rights reserved.",
+    "aboutUsTitle": "About Us",
+    "aboutUsSubtitle": "Tegar Logistics is a bilingual freight dispatch company serving owner operators and brokers across the United States.",
+    "bilingualFreight": "Tegar Logistics is a bilingual freight dispatch company serving owner operators and brokers across the United States.",
+    "weHandle": "We handle load finding, rate negotiation, broker communication, and documentation — giving drivers the back office support they need to stay on the road and run a profitable operation. Our team works across time zones and communicates in both English and Spanish, ensuring nothing gets missed and no one is left waiting. We built Tegar on straightforward principles — transparency, reliability, and results. No long term contracts, no hidden fees, and no excuses.",
+    "servicesTitle": "Services",
+    "servicesSubtitle": "We don't just book loads — we build a structured dispatch process designed to keep your operation stable and predictable.",
+    "ourTermsTitle": "Our Terms",
+    "ourTermsBulletPoints": [
+        "8% of gross load revenue",
+        "No long term contracts",
+        "No setup fees",
+        "Cancel anytime"
+    ],
+    "readyToStartTitle": "Ready to Start",
+    "readyToStartSubtitle": "Contact us and receive professional advice for your transportation business. Personalized service.",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "validEmailRequired": "Valid email required",
+    "validPhoneRequired": "Valid phone required",
+    "logisticsAndFreight": "Logistics & Freight",
+    "weMoveYourCargo": "We move your cargo with precision",
+
+    "freightDispatchTitle": "Freight Dispatch",
+    "freightDispatchDescription": "We source and secure loads that match your equipment, lane, and schedule. Using multiple load boards and established broker relationships, we keep your truck moving and your downtime minimal.",
+
+    "rateNegotiationTitle": "Rate Negotiation",
+    "rateNegotiationDescription": "Brokers post low — we push back. Every load we book is negotiated to get you the best available rate for your lane, not just the first offer on the board.",
+
+    "brokerCommunicationTitle": "Broker Communication",
+    "brokerCommunicationDescription": "We handle all broker contact on your behalf — load inquiries, rate confirmations, check calls, and delivery updates. You drive, we talk.",
+
+    "documentationTitle": "Documentation & Paperwork",
+    "documentationDescription": "Rate confirmations, bills of lading, proof of delivery — organised, filed, and handled. No chasing paperwork at the end of a long haul.",
+
+    "carrierOnboardingTitle": "Carrier Onboarding",
+    "carrierOnboardingDescription": "Getting started with Tegar is straightforward. We walk you through the setup process, handle the paperwork, and have you running loads quickly.",
+
+    "bilingualSupportTitle": "Bilingual Support",
+    "bilingualSupportDescription": "Our team operates in English and Spanish. Every service we offer is available in both languages, with no gaps in communication regardless of which you prefer."
 }

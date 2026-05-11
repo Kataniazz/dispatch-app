@@ -1,6 +1,13 @@
 import styled from "styled-components";
-import { FaCode, FaMobileAlt, FaRocket } from "react-icons/fa";
 import { media } from "../../shared/domain_logic/media";
+import { useTranslation } from "react-i18next";
+
+import { FaTruck, FaBalanceScaleLeft   } from "react-icons/fa";
+import { LuSpeech } from "react-icons/lu";
+import { IoDocumentText } from "react-icons/io5";
+import { FaTruckFront } from "react-icons/fa6";
+import { MdOutlineSupportAgent } from "react-icons/md";
+
 
 interface CardProps {
     icon: React.ReactNode;
@@ -19,61 +26,44 @@ function Card({ icon, title, description }: CardProps) {
 }
 
 export function Cards() {
+    const { t } = useTranslation();
+
     return (
         <Grid>
             <Card
-                icon={<FaCode />}
-                title="Freight Dispatch"
-                description="
-                    We source and secure loads that match your equipment, 
-                    lane, and schedule. Using multiple load boards and established 
-                    broker relationships, we keep your truck moving and your downtime minimal.
-                "
+                icon={<FaTruckFront />}
+                title={t('freightDispatchTitle')}
+                description={t('freightDispatchDescription')}
             />
 
             <Card
-                icon={<FaMobileAlt />}
-                title="Rate Negotiation"
-                description="
-                    Brokers post low — we push back. Every load we book is negotiated 
-                    to get you the best available rate for your lane, not just the first offer on the board.
-                "
+                icon={<FaBalanceScaleLeft  />}
+                title={t('rateNegotiationTitle')}
+                description={t('rateNegotiationDescription')}
             />
 
             <Card
-                icon={<FaRocket />}
-                title="Broker Communication"
-                description="
-                    We handle all broker contact on your behalf — load inquiries, rate confirmations, 
-                    check calls, and delivery updates. You drive, we talk.
-                "
+                icon={<LuSpeech />}
+                title={t('brokerCommunicationTitle')}
+                description={t('brokerCommunicationDescription')}
             />
 
             <Card
-                icon={<FaRocket />}
-                title="Documentation & Paperwork"
-                description="
-                    Rate confirmations, bills of lading, proof of delivery — organised, filed, 
-                    and handled. No chasing paperwork at the end of a long haul.
-                "
+                icon={<IoDocumentText />}
+                title={t('documentationTitle')}
+                description={t('documentationDescription')}
             />
 
             <Card
-                icon={<FaRocket />}
-                title="Carrier Onboarding"
-                description="
-                    Getting started with Tegar is straightforward. We walk you through the setup 
-                    process, handle the paperwork, and have you running loads quickly.
-                "
+                icon={<FaTruck />}
+                title={t('carrierOnboardingTitle')}
+                description={t('carrierOnboardingDescription')}
             />
 
             <Card
-                icon={<FaRocket />}
-                title="Bilingual Support"
-                description="
-                    Our team operates in English and Spanish. Every service we offer is available 
-                    in both languages, with no gaps in communication regardless of which you prefer.
-                "
+                icon={<MdOutlineSupportAgent />}
+                title={t('bilingualSupportTitle')}
+                description={t('bilingualSupportDescription')}
             />
         </Grid>
     );

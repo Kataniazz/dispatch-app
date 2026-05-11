@@ -26,6 +26,7 @@ interface InputFieldProps {
     label?: string
     isError?: boolean
     isThickFocus?: boolean
+    required?: boolean
 }
 
 export function InputField({ 
@@ -36,11 +37,12 @@ export function InputField({
     type: inputType = "text", 
     label,
     isError, 
-    isThickFocus
+    isThickFocus,
+    required = true
 }: InputFieldProps) {
     return (
         <InputContainer $size={size}>
-            <InputLabel htmlFor={inputType} $required>{label}</InputLabel>
+            <InputLabel htmlFor={inputType} $required={required}>{label}</InputLabel>
             <Input
                 id={name}
                 name={name}

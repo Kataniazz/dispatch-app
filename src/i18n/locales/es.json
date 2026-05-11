@@ -1,4 +1,54 @@
 {
-  "title": "Logística y transporte de mercancías",
-  "subtitle": "Transportamos su carga con precisión."
+    "title": "Logística y Transporte de Carga",
+    "subtitle": "Movemos su carga con precisión",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "leaveUsAMessage": "Déjanos un mensaje",
+    "submit": "Enviar",
+    "messageSent": "Mensaje enviado ✅",
+    "somethingWentWrong": "Algo salió mal ❌",
+    "privacyPolicy": "Política de Privacidad",
+    "termsAndConditions": "Términos y Condiciones",
+    "allRightsReserved": "© {{year}} Tegar Logistics. Todos los derechos reservados.",
+    "aboutUsTitle": "Sobre Nosotros",
+    "aboutUsSubtitle": "Tegar Logistics es una compañía bilingüe de despacho de carga que sirve a propietarios-operadores y corredores en todo Estados Unidos.",
+    "bilingualFreight": "Tegar Logistics es una compañía bilingüe de despacho de carga que sirve a propietarios-operadores y corredores en todo Estados Unidos.",
+    "weHandle": "Nos encargamos de encontrar cargas, negociar tarifas, comunicación con corredores y documentación — brindando a los conductores el apoyo administrativo que necesitan para mantenerse en el camino y operar un negocio rentable. Nuestro equipo trabaja en diferentes zonas horarias y se comunica tanto en inglés como en español, asegurando que nada se pierda y nadie quede esperando. Construimos Tegar sobre principios claros — transparencia, confiabilidad y resultados. Sin contratos a largo plazo, sin tarifas ocultas y sin excusas.",
+    "servicesTitle": "Servicios",
+    "servicesSubtitle": "No solo reservamos cargas — construimos un proceso de despacho estructurado diseñado para mantener su operación estable y predecible.",
+    "ourTermsTitle": "Nuestros Términos",
+    "ourTermsBulletPoints": [
+        "8% de los ingresos brutos de carga",
+        "Sin contratos a largo plazo",
+        "Sin tarifas de configuración",
+        "Cancele en cualquier momento"
+    ],
+    "readyToStartTitle": "Listo para Comenzar",
+    "readyToStartSubtitle": "Contáctenos y reciba asesoramiento profesional para su negocio de transporte. Servicio personalizado.",
+    "firstNameRequired": "El nombre es requerido",
+    "lastNameRequired": "El apellido es requerido",
+    "validEmailRequired": "Se requiere un correo electrónico válido",
+    "validPhoneRequired": "Se requiere un teléfono válido",
+    "logisticsAndFreight": "Logística y Transporte de Carga",
+    "weMoveYourCargo": "Movemos su carga con precisión",
+
+    "freightDispatchTitle": "Despacho de Carga",
+    "freightDispatchDescription": "Buscamos y aseguramos cargas que se adapten a su equipo, ruta y horario. Utilizando múltiples bolsas de carga y relaciones establecidas con brokers, mantenemos su camión en movimiento y minimizamos el tiempo de inactividad.",
+
+    "rateNegotiationTitle": "Negociación de Tarifas",
+    "rateNegotiationDescription": "Los brokers publican tarifas bajas — nosotros negociamos más. Cada carga que reservamos se negocia para obtener la mejor tarifa disponible para su ruta, no solo la primera oferta del tablero.",
+
+    "brokerCommunicationTitle": "Comunicación con Brokers",
+    "brokerCommunicationDescription": "Nos encargamos de toda la comunicación con los brokers en su nombre — consultas de carga, confirmaciones de tarifas, llamadas de seguimiento y actualizaciones de entrega. Usted conduce, nosotros hablamos.",
+
+    "documentationTitle": "Documentación y Papelería",
+    "documentationDescription": "Confirmaciones de tarifas, conocimientos de embarque y comprobantes de entrega — organizados, archivados y gestionados. Sin perseguir papeles después de un largo viaje.",
+
+    "carrierOnboardingTitle": "Incorporación de Transportistas",
+    "carrierOnboardingDescription": "Comenzar con Tegar es sencillo. Lo guiamos durante el proceso de configuración, gestionamos la documentación y lo ponemos a trabajar rápidamente.",
+
+    "bilingualSupportTitle": "Soporte Bilingüe",
+    "bilingualSupportDescription": "Nuestro equipo trabaja en inglés y español. Todos nuestros servicios están disponibles en ambos idiomas, sin barreras de comunicación sin importar cuál prefiera."
 }

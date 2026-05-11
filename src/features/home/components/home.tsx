@@ -4,7 +4,7 @@ import { Cards } from '../../cards/components/cards';
 import { Contact } from '../../contact/components/contact';
 import { Template } from '../../shared/components/form_template';
 import { Text } from '../../shared/components/text';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 interface SectionProps {
     title: string;
@@ -54,60 +54,34 @@ const Content = styled.div`
 `;
 
 export function Home() {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     return (
         <Template
             headerBackgroundImage={bgImage}
-            title={t('title')}
-            subtitle={t('subtitle')}
+            title={t('logisticsAndFreight')}
+            subtitle={t('weMoveYourCargo')}
         >
             <HomeContainer>
-                <Section
-                    title="About Us"
-                    subtitle="
-                        Tegar Logistics is a bilingual freight dispatch company 
-                        serving owner operators and brokers across the United States.
-                    "
-                    >
-                    <Text variant="body" align="center" theme="LIGHT">
-                        Tegar Logistics is a bilingual freight dispatch company 
-                        serving owner operators and brokers across the United States.
-                    </Text>
-
-                    <Text variant="body" align="center" theme="LIGHT">
-                        We handle load finding, rate negotiation, broker communication, and documentation 
-                        — giving drivers the back office support they need to stay on the road and run a profitable 
-                        operation. Our team works across time zones and communicates in both English and Spanish, 
-                        ensuring nothing gets missed and no one is left waiting.We built Tegar on straightforward 
-                        principles — transparency, reliability, and results. No long term contracts, no hidden fees, 
-                        and no excuses.
-                    </Text>
+                <Section title={t('aboutUsTitle')} subtitle={t('aboutUsSubtitle')}>
+                    <Text variant="body" align="center" theme="LIGHT">{t('bilingualFreight')}</Text>
+                    <Text variant="body" align="center" theme="LIGHT">{t('weHandle')} </Text>
                 </Section>
 
-                <Section
-                    title="Services"
-                    subtitle="We don't just book loads — we build a structured dispatch process designed to keep your operation stable and predictable."
-                >
+                <Section title={t('servicesTitle')} subtitle={t('servicesSubtitle')}>
                     <Cards />
                 </Section>
 
-                <Section
-                    title="Our Terms"
-                    subtitle=""
-                >
-                    <Text variant="body" align="center" theme="LIGHT">
-                       	•	8% of gross load revenue
-                        •	No long term contracts
-                        •	No setup fees
-                        •	Cancel anytime
+                <Section title={t('ourTermsTitle')}>
+                    {/* <Text variant="body" align="center" theme="LIGHT">{text.ourTermsBulletPoints}</Text> */}
+                    <Text variant="bulletList" align="center" theme="LIGHT">
+                        {t('ourTermsBulletPoints', {
+                            returnObjects: true,
+                        }) as string[]}
                     </Text>
                 </Section>
 
-                <Section
-                    title="Ready to Start?"
-                    subtitle="Contact us and receive professional advice for your transportation business. Personalized service."
-                >
+                <Section title={t('readyToStartTitle')} subtitle={t('readyToStartSubtitle')}>
                     <Contact />
                 </Section>
             </HomeContainer>

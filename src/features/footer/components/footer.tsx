@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { SocialIcons } from "../../socials/components/socials";
 import { Text } from "../../shared/components/text";
+import { useTranslation } from "react-i18next";
+
 export function Footer() {
+    const { t } = useTranslation();
 
     return (
          <FooterContainer>
@@ -13,20 +16,20 @@ export function Footer() {
                         target="_blank" 
                         rel="noopener noreferrer"
                     >
-                        Privacy Policy
+                        {t('privacyPolicy')}
                     </FooterLink>
                     <FooterLink 
                         href="" 
                         target="_blank" 
                         rel="noopener noreferrer"
                     >
-                        Terms & Conditions
+                        {t('termsAndConditions')}
                     </FooterLink>
                 </div>
             </Content>
             <Bottom>
                 <Text variant="small" align="center" theme="LIGHT">
-                    © {new Date().getFullYear()} Tegar Logistics. All rights reserved.
+                    {t('allRightsReserved', { year: new Date().getFullYear() })}
                 </Text>
             </Bottom>
         </FooterContainer>
