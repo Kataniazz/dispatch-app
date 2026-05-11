@@ -1,6 +1,8 @@
+/// <reference types="node" />
 import type { Handler } from "@netlify/functions";
 
 export const handler: Handler = async (event) => {
+    
     const { firstName, lastName, email, phone, message, company } = JSON.parse(event.body || "{}");
 
     // 🚨 If honeypot is filled → it's spam
